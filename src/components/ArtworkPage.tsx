@@ -51,7 +51,7 @@ export default function ArtworkPage({ artwork }: ArtworkPageProps) {
         className="flex items-center justify-center shrink-0 px-[5px] pt-6 pb-3"
       >
         <img
-          src={artwork.image}
+          src={`${import.meta.env.BASE_URL}${artwork.image}`}
           alt={artwork.title}
           className="h-auto object-contain"
           style={{

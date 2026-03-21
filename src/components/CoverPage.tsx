@@ -12,7 +12,7 @@ export default function CoverPage() {
         className="absolute inset-0"
       >
         <img
-          src="/artworks/kimjaehong-bogosipeun.jpg"
+          src={`${import.meta.env.BASE_URL}artworks/kimjaehong-bogosipeun.jpg`}
           alt={exhibition.title}
           className="w-full h-full object-cover opacity-75"
           loading="eager"
