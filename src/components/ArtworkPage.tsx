@@ -9,14 +9,13 @@ interface ArtworkPageProps {
 export default function ArtworkPage({ artwork }: ArtworkPageProps) {
   const clipPath = artwork.clipPath || "inset(0% 0% 0% 0%)";
   const maxWidth = artwork.maxWidth || '85vw';
-  const maxHeight = artwork.maxHeight || '45vh';
+  const maxHeight = artwork.maxHeight || '42vh';
   const isDark = artwork.darkBg ?? false;
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScroll, setCanScroll] = useState(false);
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
 
-  // 스크롤 가능 여부 체크
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -34,21 +33,28 @@ export default function ArtworkPage({ artwork }: ArtworkPageProps) {
     setScrolledToBottom(el.scrollTop + el.clientHeight >= el.scrollHeight - 10);
   };
 
-  // 배경/텍스트 색상
-  const bgColor = isDark ? '#111111' : '#ece4f0';
-  const textPrimary = isDark ? 'text-gray-100' : 'text-gray-800';
-  const textSecondary = isDark ? 'text-gray-400' : 'text-gray-500';
-  const textDescription = isDark ? 'text-gray-300' : 'text-gray-600';
-  const dividerColor = isDark ? 'bg-gray-700' : 'bg-gray-200';
+  // 색상 팔레트
+  const bgBase = isDark ? '#111111' : '#ece4f0';
+  const bgGradient = isDark
+    ? 'linear-gradient(180deg, #151515 0%, #0d0d0d 100%)'
+    : 'linear-gradient(180deg, #f0e8f4 0%, #e5daea 100%)';
+  const textPrimary = isDark ? '#ffffff' : '#1a1a2e';
+  const textSecondary = isDark ? '#c0bfca' : '#4a4560';
+  const textDesc = isDark ? '#d4d3dc' : '#3d3852';
+  const accentColor = isDark ? '#8b7fb8' : '#7c6aad';
+  const dividerBg = isDark ? '#444' : '#b8a8cc';
 
   return (
-    <div className="w-full h-full flex flex-col" style={{ backgroundColor: bgColor }}>
-      {/* Artwork Image */}
+    <div
+      className="w-full h-full flex flex-col"
+      style={{ background: bgGradient }}
+    >
+      {/* Artwork Image - 그림자로 입체감 */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="flex items-center justify-center shrink-0 px-[5px] pt-6 pb-3"
+        initial={{ opacity: 0, scale: 0.97 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="flex items-center justify-center shrink-0 px-4 pt-7 pb-4"
       >
         <img
           src={`${import.meta.env.BASE_URL}${artwork.image}`}
@@ -59,41 +65,61 @@ export default function ArtworkPage({ artwork }: ArtworkPageProps) {
             maxWidth,
             maxHeight,
             width: 'auto',
+            boxShadow: isDark
+              ? '0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4)'
+              : '0 8px 32px rgba(80,50,120,0.15), 0 2px 8px rgba(80,50,120,0.08)',
           }}
           loading="lazy"
         />
       </motion.div>
 
-      {/* Caption - 작가명 먼저, 제목 이탤릭 */}
+      {/* Caption */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="w-full text-center py-2 pb-2 shrink-0 px-4"
+        transition={{ duration: 0.5, delay: 0.25 }}
+        className="w-full text-center shrink-0 px-5 pt-1 pb-1"
       >
+        {/* 작가명 + 악센트 라인 */}
         {artwork.artist && (
-          <p
-            className={`${textPrimary} text-base font-semibold tracking-wide mb-1`}
-            style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
-          >
-            {artwork.artist}
-          </p>
+          <div className="mb-2">
+            <p
+              className="text-[19px] font-bold tracking-wider mb-1.5"
+              style={{ fontFamily: "'Noto Sans KR', sans-serif", color: textPrimary }}
+            >
+              {artwork.artist}
+            </p>
+            <div
+              className="w-6 h-[2px] mx-auto rounded-full"
+              style={{ backgroundColor: accentColor }}
+            />
+          </div>
         )}
+        {/* 제목 */}
         <p
-          className={`${textSecondary} text-[15px] leading-relaxed mb-1.5 whitespace-pre-line`}
-          style={{ fontFamily: "'Noto Serif', 'Noto Sans KR', serif", fontStyle: 'italic' }}
+          className="text-[16px] leading-relaxed mb-1.5 whitespace-pre-line"
+          style={{
+            fontFamily: "'Noto Serif', 'Noto Sans KR', serif",
+            fontStyle: 'italic',
+            color: textSecondary,
+          }}
         >
           {artwork.title}
         </p>
+        {/* 재료 / 크기 / 연도 */}
         <p
-          className={`${textSecondary} text-xs font-light leading-relaxed tracking-wide`}
-          style={{ fontFamily: "'Montserrat', sans-serif" }}
+          className="text-[12.5px] leading-relaxed tracking-wider"
+          style={{
+            fontFamily: "'Montserrat', sans-serif",
+            color: textSecondary,
+            opacity: 0.75,
+          }}
         >
           {artwork.material}, {artwork.size}, {artwork.year}
         </p>
       </motion.div>
 
-      {/* Description - 남은 공간에서 세로 스크롤 */}
+      {/* Description */}
       {artwork.description ? (
         <div className="flex-1 relative min-h-0">
           <div
@@ -102,25 +128,30 @@ export default function ArtworkPage({ artwork }: ArtworkPageProps) {
             className="absolute inset-0 overflow-y-auto px-6 pb-20"
             style={{ touchAction: 'pan-y pinch-zoom' }}
           >
-            <div className="max-w-lg mx-auto pt-2">
-              <div className={`w-8 h-[1px] ${dividerColor} mx-auto mb-4`} />
+            <div className="max-w-lg mx-auto pt-3">
               <div
-                className={`${textDescription} text-[13.5px] leading-[1.8] text-center break-keep flex flex-col gap-0`}
-                style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
+                className="w-10 h-[1.5px] mx-auto mb-5 rounded-full"
+                style={{ backgroundColor: dividerBg }}
+              />
+              <p
+                className="text-[15px] leading-[2] text-center break-keep whitespace-pre-line"
+                style={{
+                  fontFamily: "'Noto Sans KR', sans-serif",
+                  color: textDesc,
+                  letterSpacing: '0.01em',
+                }}
               >
-                {artwork.description.split('\n\n').map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
+                {artwork.description}
+              </p>
             </div>
           </div>
 
-          {/* 스크롤 힌트 - 그라데이션 페이드 */}
+          {/* 스크롤 힌트 */}
           {canScroll && !scrolledToBottom && (
             <div
               className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
               style={{
-                background: `linear-gradient(to bottom, transparent, ${bgColor})`,
+                background: `linear-gradient(to bottom, transparent, ${bgBase})`,
               }}
             />
           )}
