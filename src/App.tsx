@@ -29,6 +29,8 @@ function AppContent() {
   const isScrolling = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | HTMLVideoElement | null>(null);
+  const bgmRef = useRef<HTMLAudioElement | null>(null);
+  const [bgmPlaying, setBgmPlaying] = useState(false);
 
   // 50페이지+ 성능 최적화: 현재 페이지 기준 앞뒤 2페이지만 렌더링
   const RENDER_RANGE = 2;
@@ -45,45 +47,67 @@ function AppContent() {
     return false;
   }, [currentPage]);
 
-  // Initialize page flip sound
+  // Initialize BGM + page flip sound
   useEffect(() => {
-    const audioUrl = 'https://raw.githubusercontent.com/taejungart-maker/0213/main/sound/20260302_book%20sound.mov';
+    const base = import.meta.env.BASE_URL;
 
-    const videoElement = document.createElement('video');
-    videoElement.src = audioUrl;
-    videoElement.volume = 0.7;
-    videoElement.preload = 'auto';
-    videoElement.playsInline = true;
-    videoElement.muted = false;
-    videoElement.style.display = 'none';
-    document.body.appendChild(videoElement);
+    // BGM: mp3 (모든 브라우저 호환)
+    const bgm = new Audio(`${base}bgm.mp3`);
+    bgm.loop = true;
+    bgm.volume = 0.3;
+    bgm.preload = 'auto';
+    bgmRef.current = bgm;
 
-    audioRef.current = videoElement;
+    // Page flip sound
+    const sfx = document.createElement('video');
+    sfx.src = 'https://raw.githubusercontent.com/taejungart-maker/0213/main/sound/20260302_book%20sound.mov';
+    sfx.volume = 0.7;
+    sfx.preload = 'auto';
+    sfx.playsInline = true;
+    sfx.style.display = 'none';
+    document.body.appendChild(sfx);
+    audioRef.current = sfx;
 
-    const enableAudio = () => {
+    // 첫 터치: BGM 재생 시도 + 효과음 활성화
+    const onFirstInteraction = () => {
+      if (bgmRef.current) {
+        bgmRef.current.play().then(() => {
+          setBgmPlaying(true);
+        }).catch((err) => {
+          console.error('BGM play failed:', err);
+        });
+      }
       if (audioRef.current) {
         audioRef.current.play().then(() => {
           audioRef.current?.pause();
           (audioRef.current as HTMLMediaElement).currentTime = 0;
         }).catch(() => {});
       }
-      document.removeEventListener('touchstart', enableAudio);
-      document.removeEventListener('click', enableAudio);
+      document.removeEventListener('touchstart', onFirstInteraction);
+      document.removeEventListener('click', onFirstInteraction);
     };
 
-    document.addEventListener('touchstart', enableAudio);
-    document.addEventListener('click', enableAudio);
+    document.addEventListener('touchstart', onFirstInteraction);
+    document.addEventListener('click', onFirstInteraction);
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        document.body.removeChild(videoElement);
-        audioRef.current = null;
-      }
-      document.removeEventListener('touchstart', enableAudio);
-      document.removeEventListener('click', enableAudio);
+      if (bgmRef.current) { bgmRef.current.pause(); bgmRef.current = null; }
+      if (audioRef.current) { audioRef.current.pause(); document.body.removeChild(sfx); audioRef.current = null; }
+      document.removeEventListener('touchstart', onFirstInteraction);
+      document.removeEventListener('click', onFirstInteraction);
     };
   }, []);
+
+  const toggleBgm = (e: React.MouseEvent | React.TouchEvent) => {
+    e.stopPropagation();
+    if (!bgmRef.current) return;
+    if (bgmPlaying) {
+      bgmRef.current.pause();
+      setBgmPlaying(false);
+    } else {
+      bgmRef.current.play().then(() => setBgmPlaying(true)).catch(() => {});
+    }
+  };
 
   // Play sound on page change
   useEffect(() => {
@@ -269,6 +293,31 @@ function AppContent() {
           {isVisible(TOTAL_PAGES - 1) && <EndingPage />}
         </div>
       </div>
+
+      {/* BGM Toggle Button */}
+      <button
+        onClick={toggleBgm}
+        onTouchEnd={(e) => { e.preventDefault(); toggleBgm(e); }}
+        className={`absolute top-5 right-5 z-50 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+          currentBgIsDark
+            ? 'bg-white/15 backdrop-blur-sm text-white/70 hover:bg-white/25'
+            : 'bg-black/8 backdrop-blur-sm text-gray-600 hover:bg-black/15'
+        }`}
+      >
+        {bgmPlaying ? (
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+          </svg>
+        ) : (
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <line x1="23" y1="9" x2="17" y2="15" />
+            <line x1="17" y1="9" x2="23" y2="15" />
+          </svg>
+        )}
+      </button>
 
       {/* Page Indicator - 배경에 맞춰 색상 변경 */}
       <div
