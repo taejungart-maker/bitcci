@@ -410,7 +410,7 @@ export const exhibition: ExhibitionData = {
       size: "64×56cm",
       year: "2026",
       image: "artworks/jungyoungchang-bitcci.jpg",
-      description: "어두운 시대의 밤을 뚫고 스스로 빛이 된 이들의 뒷모습.\n그 빛은 누군가에게는 정의였고,\n누군가에게는 희망이었다.",
+      description: "어두운 시대의 밤을 뚫고 스스로 빛이 된 이들의 뒷모습.\n그 빛은 누군가에게는 정의였고, 누군가에게는 희망이었다.",
       maxHeight: "calc(100vh - 350px)",
     },
     // 정현수
