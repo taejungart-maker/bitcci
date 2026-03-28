@@ -4,7 +4,13 @@ export default function PosterPage() {
       <img
         src={`${import.meta.env.BASE_URL}artworks/41.jpg`}
         alt="아르떼숲"
-        className="max-w-full max-h-full object-contain"
+        className="object-contain"
+        style={{
+          maxWidth: '80%',
+          maxHeight: '30%',
+          mixBlendMode: 'multiply',
+          filter: 'contrast(1.5) saturate(1.8)',
+        }}
         loading="eager"
       />
     </div>
