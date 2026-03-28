@@ -163,17 +163,6 @@ export const exhibition: ExhibitionData = {
       description: "",
       maxHeight: "calc(100vh - 350px)",
     },
-    {
-      id: 11,
-      artist: "김태연",
-      title: "응신(應身)",
-      material: "흙벽에 채색",
-      size: "20.5×20.5×3cm",
-      year: "2024~2026",
-      image: "artworks/38.jpg",
-      description: "",
-      maxHeight: "calc(100vh - 350px)",
-    },
     // 남진현
     {
       id: 15,
