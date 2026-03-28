@@ -326,7 +326,7 @@ export const exhibition: ExhibitionData = {
       size: "97.0×97.0cm",
       year: "2026",
       image: "artworks/34.png",
-      description: "검게 탄 나무에 봄볕이 스몄다.\n그 속에 빛씨가 꿈틀거리더니\n새 움이 튼다.\n그의 죽음은 끝이 아니었다.",
+      description: "검게 탄 나무에 봄볕이 스몄다.\n그 속에 빛씨가 꿈틀거리더니 새 움이 튼다.\n그의 죽음은 끝이 아니었다.",
       maxHeight: "calc(100vh - 350px)",
     },
     // 이운구
