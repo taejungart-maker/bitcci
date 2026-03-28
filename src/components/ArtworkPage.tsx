@@ -42,7 +42,7 @@ export default function ArtworkPage({ artwork }: ArtworkPageProps) {
   const textSecondary = isDark ? '#c0bfca' : '#4a4560';
   const textDesc = isDark ? '#d4d3dc' : '#3d3852';
   const accentColor = isDark ? '#8b7fb8' : '#7c6aad';
-  const dividerBg = isDark ? '#444' : '#b8a8cc';
+  const dividerBg = isDark ? '#777' : '#b8a8cc';
 
   return (
     <div
