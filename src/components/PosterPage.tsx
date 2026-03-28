@@ -1,18 +1,20 @@
 export default function PosterPage() {
   return (
-    <div className="w-full h-full flex-shrink-0 bg-white flex items-center justify-center">
-      <img
-        src={`${import.meta.env.BASE_URL}artworks/41.jpg`}
-        alt="아르떼숲"
-        className="object-contain"
+    <div
+      className="w-full h-full flex-shrink-0 flex items-center justify-center"
+      style={{ backgroundColor: '#e6e0f0' }}
+    >
+      <p
+        className="text-center text-lg leading-relaxed tracking-wide"
         style={{
-          maxWidth: '80%',
-          maxHeight: '30%',
-          mixBlendMode: 'multiply',
-          filter: 'contrast(1.5) saturate(1.8)',
+          fontFamily: "'Noto Sans KR', sans-serif",
+          color: 'rgba(0, 0, 0, 0.7)',
         }}
-        loading="eager"
-      />
+      >
+        윤복이 머금은 빛씨는
+        <br />
+        태일의 가슴에서 꽃을 피웠다.
+      </p>
     </div>
   );
 }
