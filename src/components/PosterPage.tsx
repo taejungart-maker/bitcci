@@ -2,7 +2,7 @@ export default function PosterPage() {
   return (
     <div
       className="w-full h-full flex-shrink-0 flex items-center justify-center"
-      style={{ backgroundColor: '#e6e0f0' }}
+      style={{ backgroundColor: '#c5b3de' }}
     >
       <p
         className="text-center leading-relaxed tracking-wide font-bold"
