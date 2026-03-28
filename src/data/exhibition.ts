@@ -338,7 +338,7 @@ export const exhibition: ExhibitionData = {
       size: "130.3×80.3cm",
       year: "2026",
       image: "artworks/27.jpg",
-      description: "전태일, 이재명, 이윤복.\n이들의 따뜻한 연대는\n우리 공동체가 지향할\n대동(大同)세상을 꿈꾸게 한다.",
+      description: "전태일, 이재명, 이윤복. 이들의 따뜻한 연대는\n우리 공동체가 지향할 대동(大同)세상을 꿈꾸게 한다.",
       maxHeight: "calc(100vh - 350px)",
     },
     // 이흥덕
