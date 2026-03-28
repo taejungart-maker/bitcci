@@ -27,7 +27,7 @@ export default function CoverPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-white/60 text-xs tracking-[0.3em] mb-5"
+          className="text-white/90 text-xs tracking-[0.3em] mb-5"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           {exhibition.period}
@@ -45,7 +45,7 @@ export default function CoverPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.2 }}
-          className="text-white/40 text-xs tracking-[0.2em] mb-8"
+          className="text-white/80 text-sm tracking-[0.2em] mb-8"
           style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
         >
           {exhibition.venue.split('(')[0].trim()}
@@ -56,7 +56,7 @@ export default function CoverPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 3.5 }}
-          className="text-white/30 text-[10px] tracking-[0.2em] mb-3"
+          className="text-white/70 text-xs tracking-[0.2em] mb-3"
           style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
         >
           출품 작가
@@ -72,7 +72,7 @@ export default function CoverPage() {
                 delay: 4 + i * 0.15,
                 ease: "easeOut",
               }}
-              className="text-white/50 text-[13px] tracking-wide"
+              className="text-white/80 text-[14px] tracking-wide"
               style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
             >
               {artist}{i < exhibition.artists.length - 1 ? ',' : ''}
