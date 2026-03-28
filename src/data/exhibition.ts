@@ -434,7 +434,7 @@ export const exhibition: ExhibitionData = {
       size: "65.1×90.9cm",
       year: "2026",
       image: "artworks/chaehanri-oh-jesus.jpg",
-      description: "우리는 저마다의 고통이 있습니다. 모두 불쌍한 존재들입니다.\n그러나 나의 불행에 짓눌려 타인의 고통을 외면하고 그 신음에 냉소할 때,\n우리는 더욱 불쌍한 존재가 됩니다.",
+      description: "우리는 저마다의 고통이 있다. 모두 불쌍한 존재들이다.\n그러나 나의 불행에 짓눌려 타인의 고통을 외면하고 그 신음에 냉소할 때,\n우리는 더욱 불쌍한 존재가 된다.",
       maxHeight: "calc(100vh - 350px)",
     },
     // 천광호
