@@ -233,7 +233,7 @@ export const exhibition: ExhibitionData = {
       size: "100×80.2cm",
       year: "2026",
       image: "artworks/31.jpg",
-      description: "전태일을 알게 되고\n노동 현장을 가게 된 지 수십 년이 된 어느 날,\n<아르떼숲>이 놓은 징검다리에서\n전태일의 빛씨를 머금고 있음을 알게 되었다.\n우리가 꽃피울 차례다.",
+      description: "전태일을 알게 되고 노동 현장을 가게 된 지 수십 년이 된 어느 날,\n<아르떼숲>이 놓은 징검다리에서\n전태일의 빛씨를 머금고 있음을 알게 되었다.\n우리가 꽃피울 차례다.",
       maxHeight: "calc(100vh - 350px)",
     },
     // 송주웅
