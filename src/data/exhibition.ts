@@ -159,7 +159,7 @@ export const exhibition: ExhibitionData = {
       material: "흙벽에 채색",
       size: "20.5×20.5×3cm",
       year: "2024~2026",
-      image: "artworks/kimtaeyeon-eungsin.jpg",
+      image: "artworks/38.jpg",
       description: "",
       maxHeight: "calc(100vh - 350px)",
     },
