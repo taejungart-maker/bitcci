@@ -113,7 +113,7 @@ export const exhibition: ExhibitionData = {
       size: "50×90cm",
       year: "2021~2026",
       image: "artworks/kimjaehong-bogosipeun.jpg",
-      description: "어느 청년 노동자가 편의점에서 컵라면 하나로 점심을 때우고 '깜빡잠'이 들었던 모양이다. 이 장면을 본 작가는 청년이 꾸고 있을 것 같은 고향마을을 그렸다.",
+      description: "어느 청년 노동자가\n편의점에서 컵라면 하나로 점심을 때우고 '깜빡잠'이 들었던 모양이다.\n이 장면을 본 작가는 청년이 꾸고 있을 것 같은 고향마을을 그렸다.",
       maxHeight: "calc(100vh - 350px)",
     },
     // 김지소
