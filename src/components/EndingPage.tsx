@@ -19,10 +19,12 @@ export default function EndingPage() {
         </p>
 
         <h2
-          className="text-white text-2xl font-bold mb-8 tracking-wide"
+          className="text-white font-bold mb-8 tracking-wide"
           style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
         >
-          {exhibition.title}
+          <span className="text-2xl">전태일과 이윤복의</span>
+          <br />
+          <span className="text-4xl">빛씨</span>
         </h2>
 
         <div className="w-12 h-[1px] bg-white/20 mx-auto mb-8" />
