@@ -401,6 +401,17 @@ export const exhibition: ExhibitionData = {
       description: "해고된 노동자가 자신의 일터 앞에서\n고공농성을 하고 있다.\n나는 그 현장에서 드로잉을 수행한다.\n나의 드로잉은 기록이 아니라 동참하는 것이다.\n지나가는 사람들은\n내가 무엇을 그리는지 궁금해하며 걸음을 멈추고 바라본다.\n그 순간 드로잉은 공적 행위가 되고 사건이 된다.",
       maxHeight: "calc(100vh - 350px)",
     },
+    {
+      id: 42,
+      artist: "전진경",
+      title: "Look Up!",
+      material: "1채널 비디오, 컬러, 사운드",
+      size: "0:40",
+      year: "2025~",
+      image: "artworks/42.jpg",
+      description: "",
+      maxHeight: "calc(100vh - 350px)",
+    },
     // 정영창
     {
       id: 17,
