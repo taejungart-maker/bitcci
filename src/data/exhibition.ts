@@ -125,7 +125,7 @@ export const exhibition: ExhibitionData = {
       size: "120×500×120mm",
       year: "2026",
       image: "artworks/kimjiso-subaltern-seed.jpg",
-      description: "Subaltern은 권력의 중심에서 배제된 존재이다. 전태일과 이윤복은\n사회적 주체로 서지 못했지만 가장 낮은 자리에서 정의를 증언한 존재였다.\n녹슨 금속의 머리와 바닥에 길게 끌린 돌의 질량은 억압된 시간과 구조를 시각화한다.\n그러나 이 '눕혀진 몸'은 끝이 아니라 시작이다.\n빛씨는 낮은 자리에서 발화하기 때문이다.",
+      description: "Subaltern은 권력의 중심에서 배제된 존재이다.\n전태일과 이윤복은\n사회적 주체로 서지 못했지만 가장 낮은 자리에서 정의를 증언한 존재였다.\n녹슨 금속의 머리와 바닥에 길게 끌린 돌의 질량은\n억압된 시간과 구조를 시각화한다.\n그러나 이 '눕혀진 몸'은 끝이 아니라 시작이다.\n빛씨는 낮은 자리에서 발화하기 때문이다.",
       maxHeight: "calc(100vh - 350px)",
       darkBg: true,
     },
