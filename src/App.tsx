@@ -7,8 +7,8 @@ import ArtworkPage from './components/ArtworkPage';
 import EndingPage from './components/EndingPage';
 import { exhibition } from './data/exhibition';
 
-// cover + poster + foreword + artworks + ending
-const TOTAL_PAGES = 4 + exhibition.artworks.length;
+// cover + leaflet(2) + poster + foreword + artworks + ending
+const TOTAL_PAGES = 6 + exhibition.artworks.length;
 
 export default function App() {
   return (
@@ -40,8 +40,8 @@ function AppContent() {
   const currentBgIsDark = useMemo(() => {
     if (currentPage === 0) return true; // cover
     if (currentPage === TOTAL_PAGES - 1) return true; // ending
-    if (currentPage >= 3 && currentPage < TOTAL_PAGES - 1) {
-      const artworkIndex = currentPage - 3;
+    if (currentPage >= 5 && currentPage < TOTAL_PAGES - 1) {
+      const artworkIndex = currentPage - 5;
       return exhibition.artworks[artworkIndex]?.darkBg ?? false;
     }
     return false;
@@ -263,19 +263,29 @@ function AppContent() {
           {isVisible(0) && <CoverPage />}
         </div>
 
-        {/* Page 2: Poster */}
-        <div className="w-full h-full flex-shrink-0 flex items-center justify-center">
-          {isVisible(1) && <PosterPage />}
+        {/* Page 2: 리플릿 앞면 */}
+        <div className="w-full h-full flex-shrink-0 flex items-center justify-center bg-white">
+          {isVisible(1) && <img src={`${import.meta.env.BASE_URL}artworks/39.jpg`} alt="리플릿 앞면" className="max-w-full max-h-full object-contain" />}
         </div>
 
-        {/* Page 3: Foreword */}
+        {/* Page 3: 리플릿 뒷면 */}
+        <div className="w-full h-full flex-shrink-0 flex items-center justify-center bg-white">
+          {isVisible(2) && <img src={`${import.meta.env.BASE_URL}artworks/40.jpg`} alt="리플릿 뒷면" className="max-w-full max-h-full object-contain" />}
+        </div>
+
+        {/* Page 4: Poster */}
         <div className="w-full h-full flex-shrink-0 flex items-center justify-center">
-          {isVisible(2) && <ForewordPage />}
+          {isVisible(3) && <PosterPage />}
+        </div>
+
+        {/* Page 5: Foreword */}
+        <div className="w-full h-full flex-shrink-0 flex items-center justify-center">
+          {isVisible(4) && <ForewordPage />}
         </div>
 
         {/* Artwork Pages */}
         {exhibition.artworks.map((artwork, index) => {
-          const pageIndex = index + 3;
+          const pageIndex = index + 5;
           // darkBg가 아닌 작품은 홀짝으로 녹색/보라색 배경 자동 배정
           const themed = {
             ...artwork,
