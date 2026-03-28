@@ -195,7 +195,7 @@ export const exhibition: ExhibitionData = {
       material: "나무 캔버스×납",
       size: "1)300×300×80mm 2)300×300×200mm",
       year: "2026",
-      image: "artworks/parkgeonjae-imprinted.jpg",
+      image: "artworks/38.jpg",
       description: "인간이 자행한 상흔, 무심코 남겨진 피해와 잔재들이 어떻게 다시 태어날 수 있는지 고민한다. 기억'되어지는' 행위는 과거로 돌아가는 단순한 회복이 아닌, 고통과 상처를 껴안고 새로운 생명으로 피어나는 과정이다.",
       maxHeight: "calc(100vh - 350px)",
     },
