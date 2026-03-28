@@ -153,6 +153,17 @@ export const exhibition: ExhibitionData = {
       maxHeight: "calc(100vh - 350px)",
     },
     {
+      id: 38,
+      artist: "김태연",
+      title: "응신(應身)",
+      material: "흙벽에 채색",
+      size: "20.5×20.5×3cm",
+      year: "2024~2026",
+      image: "artworks/7.jpg",
+      description: "",
+      maxHeight: "calc(100vh - 350px)",
+    },
+    {
       id: 11,
       artist: "김태연",
       title: "응신(應身)",
