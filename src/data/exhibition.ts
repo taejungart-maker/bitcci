@@ -35,7 +35,7 @@ export const exhibition: ExhibitionData = {
   opening: "4월 1일 늦은 4시",
   organizer: "아르떼숲",
   organizerContact: "으뜸일꾼 정요섭 / 010-8441-5009",
-  poster: "artworks/poster-vertical.jpg",
+  poster: "artworks/2.png",
 
   foreword: `'이윤복'을 아시나요? <저 하늘에도 슬픔이>라는 이 영화는 매일 주린 배를 움켜쥐어야 했던 11살 윤복의 일기를 영화로 만들어 온 국민을 울렸습니다. '전태일'은 아실 테지요? 제 몸을 불살라 노동인권을 부르짖은 태일의 일대기 <아름다운 청년 전태일>이라는 영화는 노동자의 인권에 무심했던 한국 사회를 흔들어 깨웠습니다.
 
