@@ -141,7 +141,15 @@ export default function ArtworkPage({ artwork }: ArtworkPageProps) {
                   letterSpacing: '0.01em',
                 }}
               >
-                {artwork.description}
+                {artwork.description.split('\n').map((line, i) => {
+                  const isSmall = line.startsWith('생걸') || line.startsWith('............');
+                  return (
+                    <span key={i}>
+                      {i > 0 && '\n'}
+                      {isSmall ? <span style={{ fontSize: '11px' }}>{line}</span> : line}
+                    </span>
+                  );
+                })}
               </p>
             </div>
           </div>
