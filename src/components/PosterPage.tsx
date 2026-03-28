@@ -5,9 +5,11 @@ export default function PosterPage() {
       style={{ backgroundColor: '#e6e0f0' }}
     >
       <p
-        className="text-center text-lg leading-relaxed tracking-wide"
+        className="text-center leading-relaxed tracking-wide font-bold"
+
         style={{
           fontFamily: "'Noto Sans KR', sans-serif",
+          fontSize: '24px',
           color: 'rgba(0, 0, 0, 0.7)',
         }}
       >
