@@ -40,13 +40,13 @@ export default function EndingPage() {
 
         <div className="w-8 h-[1px] bg-white/10 mx-auto mb-8" />
 
-        {/* 기획 */}
-        <p
-          className="text-white/30 text-xs tracking-wide"
-          style={{ fontFamily: "'Noto Sans KR', sans-serif" }}
-        >
-          기획 — {exhibition.organizer}
-        </p>
+        {/* 아르떼숲 로고 */}
+        <img
+          src={`${import.meta.env.BASE_URL}artworks/44.png`}
+          alt="아르떼숲"
+          className="mx-auto"
+          style={{ maxHeight: '40px', opacity: 0.6 }}
+        />
       </motion.div>
     </div>
   );
