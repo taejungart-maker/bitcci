@@ -133,7 +133,7 @@ export const exhibition: ExhibitionData = {
     {
       id: 9,
       artist: "김태연",
-      title: "鎭魂曲",
+      title: "진혼곡(鎭魂曲)",
       material: "흙벽에 채색",
       size: "81×81×2.5cm",
       year: "2024~2026",
