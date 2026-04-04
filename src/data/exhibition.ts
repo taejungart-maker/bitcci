@@ -403,17 +403,6 @@ export const exhibition: ExhibitionData = {
     },
     // 전진경
     {
-      id: 28,
-      artist: "전진경",
-      title: "사건을 바라보는 위치",
-      material: "캔버스에 아크릴",
-      size: "72×60cm",
-      year: "2026",
-      image: "artworks/44.jpg",
-      description: "해고된 노동자가 자신의 일터 앞에서\n고공농성을 하고 있다.\n나는 그 현장에서 드로잉을 수행한다.\n나의 드로잉은 기록이 아니라 동참하는 것이다.\n지나가는 사람들은\n내가 무엇을 그리는지 궁금해하며 걸음을 멈추고 바라본다.\n그 순간 드로잉은 공적 행위가 되고 사건이 된다.",
-      maxHeight: "calc(100vh - 350px)",
-    },
-    {
       id: 42,
       artist: "전진경",
       title: "Look Up!",
