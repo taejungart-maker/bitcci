@@ -448,6 +448,17 @@ export const exhibition: ExhibitionData = {
       description: "\"나의 일상을 풍요롭게 채우는 건 어떤 의미인가,\n우리는 타인의 삶을 온전히 이해할 수 있는가,\n사람과 사회는 바뀔 수 있는가.\n그리고 호의는 사람을, (또한) 세상을 어떻게 바꾸는가.\n주위에 불행한 사람이 있는 한 우리는 행복해질 수 없다.\"\n\n- 문형배 전 헌법재판소 소장 대행의 책 중에서 -",
       maxHeight: "calc(100vh - 350px)",
     },
+    {
+      id: 44,
+      artist: "정현수",
+      title: "추모",
+      material: "도판 위에 옻칠",
+      size: "38×48cm",
+      year: "2026",
+      image: "artworks/43.jpg",
+      description: "꽃다운 나이에 꽃같은 세상을 꿈꾸며\n꽃처럼 피었다 사라진\n당신을 기억합니다",
+      maxHeight: "calc(100vh - 350px)",
+    },
     // 채한리
     {
       id: 7,
