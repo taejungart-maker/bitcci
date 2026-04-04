@@ -397,7 +397,7 @@ export const exhibition: ExhibitionData = {
       material: "나무판에 채색",
       size: "100×48cm",
       year: "2026",
-      image: "artworks/jangkyunghee-uniform.png",
+      image: "artworks/44.jpg",
       description: "하필이면 태일의 집이 어느 여고 곁이었다.\n열여섯 사춘기에 그는 날마다 반짝이는 교복을 입은 여학생들과 마주쳐야 했다.\n그때마다 고개를 숙이거나 전봇대 뒤로 몸을 숨겼다.\n후줄근한 일복, 도시락 가방에서 나는 묵은김치 냄새가 부끄러웠다.\n같은 또래이면서 그들은 버스를 탈 때 '학생토큰'을,\n가난한 태일은 그보다 더 비싼 '일반토큰'을 내야 했다.\n그들이 부르는 최신 팝송은 넘볼 수 없는 신분의 증표였다.",
       maxHeight: "calc(100vh - 350px)",
     },
